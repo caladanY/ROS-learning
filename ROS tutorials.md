@@ -12,29 +12,40 @@ $ rospack find [package_name]
 ```roscd``` is part of the rosbash suite. It allows you to change directory (cd) directly to a package or a stack. 
 
 Usage: 
+
 ```
 $ roscd [locationname[/subdir]]
 ```
+
 ```roscd```can also move to a subdirectory of a package or stack. 
 
 Try: 
+
 ```
 $ roscd roscpp/cmake
 ```
 
-### (3).roscd log
+### (3). roscd log
+
 ```roscd log``` will take you to the folder where ROS stores log files. Note that if you have not run any ROS programs yet, this will yield an error saying that it does not yet exist. 
 If you have run some ROS program before, try: 
+
 ```
 $ roscd log
 ```
 
-### (4).rosls is part of the rosbash suite. It allows you to ls directly in a package by name rather than by absolute path. 
-Usage: 
-$ rosls [locationname[/subdir]]
-Example: 
-$ rosls roscpp_tutorials
+### (4). rosls 
+```rosls``` is part of the rosbash suite. It allows you to ls directly in a package by name rather than by absolute path. 
 
+
+Usage: 
+```
+$ rosls [locationname[/subdir]]
+```
+Example: 
+```
+$ rosls roscpp_tutorials
+```
 ##2. Creating a ROS Package
 ### (1). A catkin Package
 The simplest possible package might have a structure which looks like this: 
@@ -106,7 +117,9 @@ $ catkin_make [make_targets] [-DCMAKE_VARIABLES=...]
 $ catkin_make install  # (optionally)
 ```
 The above commands will build any catkin projects found in the ```src``` folder.
+
 ## 4. Understanding ROS Nodes
+
 ### Quick Overview of Graph Concepts
 - Nodes: A node is an executable that uses ROS to communicate with other nodes. 
 - Messages: ROS data type used when subscribing or publishing to a topic. 
@@ -114,12 +127,14 @@ The above commands will build any catkin projects found in the ```src``` folder.
 - Master: Name service for ROS (i.e. helps nodes find each other) 
 - rosout: ROS equivalent of stdout/stderr 
 - roscore: Master + rosout + parameter server (parameter server will be introduced later)
+
 ### (1). Nodes
 A node really isn't much more than an executable file within a ROS package. ROS nodes use a ROS client library to communicate with other nodes. Nodes can publish or subscribe to a Topic. Nodes can also provide or use a Service. 
 ### (2).Client Libraries
 ROS client libraries allow nodes written in different programming languages to communicate: 
 - ```rospy``` = python client library 
 - ```roscpp``` = c++ client library 
+
 ### (3). roscore
 ```roscore``` is the first thing you should run when using ROS. 
 
