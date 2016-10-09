@@ -96,7 +96,7 @@ As long as all of the system dependencies of your package are installed, we can 
 ```
 $ source /opt/ros/%YOUR_ROS_DISTRO%/setup.bash
 ```
-### ```catkin_make```
+### catkin_make
 ```catkin_make``` is a command line tool which adds some convenience to the standard catkin workflow. You can imagine that ```catkin_make``` combines the calls to ```cmake``` and ```make``` in the standard CMake workflow. 
 
 Usage:
@@ -120,24 +120,24 @@ A node really isn't much more than an executable file within a ROS package. ROS 
 ROS client libraries allow nodes written in different programming languages to communicate: 
 - ```rospy``` = python client library 
 - ```roscpp``` = c++ client library 
-### (3). ```roscore```
+### (3). roscore
 ```roscore``` is the first thing you should run when using ROS. 
 
 Please run: 
 ```
 $ roscore
 ```
-### (4). ```rosnode list```
+### (4). rosnode list
 The ```rosnode list``` command lists these active nodes: 
 ```
 $ rosnode list
 ```
-### (5). ```rosnode info```
+### (5). rosnode info
 The ```rosnode info``` command returns information about a specific node. 
 ```
 $ rosnode info /rosout
 ```
-### (6).  ```rosrun```
+### (6).  rosrun
 ```rosrun``` allows you to use the package name to directly run a node within a package (without having to know the package path). 
 
 Usage: 
@@ -166,7 +166,7 @@ If you can not drive the turtle select the terminal window of the ```turtle_tele
 ### (3). ROS Topics
 The ```turtlesim_node``` and the ```turtle_teleop_key``` node are communicating with each other over a ROS Topic.
 ```turtle_teleop_key``` is publishing the key strokes on a topic, while ```turtlesim``` subscribes to the same topic to receive the key strokes. Let's use ```rqt_graph``` which shows the nodes and topics currently running. 
-### (4). ```rqt_graph``` 
+### (4). rqt_graph 
 ```rqt_graph``` creates a dynamic graph of what's going on in the system. ```rqt_graph``` is part of the rqt package. Unless you already have it installed, run: 
 ```
 $ sudo apt-get install ros-<distro>-rqt
@@ -178,7 +178,7 @@ You can use the ```help``` option to get the available sub-commands for rostopic
 ```
 $ rostopic -h
 ```
-### (6). ```rostopic echo``` 
+### (6). rostopic echo
 ```rostopic echo``` shows the data published on a topic. 
 
 Usage: 
@@ -189,7 +189,7 @@ Example:
 ```
 $ rostopic echo /turtle1/command_velocity
 ```
-### (6).Using ```rostopic list```
+### (6).Using rostopic list
 ```rostopic list``` returns a list of all topics currently subscribed to and published. 
 Let's figure out what argument the list sub-command needs. In a new terminal run: 
 ```
@@ -209,7 +209,7 @@ Options:
   ```
 ### ROS Messages
 Communication on topics happens by sending ROS messages between nodes. For the publisher ```turtle_teleop_key``` and subscriber ```turtlesim_node``` to communicate, the publisher and subscriber must send and receive the same type of message. This means that a topic type is defined by the message type published on it. The type of the message sent on a topic can be determined using ```rostopic type```.
-### (7). Using ```rostopic type```
+### (7). Using rostopic type
 ``rostopic type``` returns the message type of any topic being published. 
 
 Usage: 
@@ -224,7 +224,7 @@ We can look at the details of the message using ```rosmsg```:
 ```
 $ rosmsg show geometry_msgs/Twist #geometry_msgs/Twist is a rostopic type.
 ```
-### (8). Using ```rostopic pub```
+### (8). Using rostopic pub
 ```rostopic pub``` publishes data on to a topic currently advertised. 
 
 Usage: 
@@ -246,7 +246,7 @@ You may have noticed that the turtle has stopped moving; this is because the tur
 ```
 $ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'
 ```
-### (9). Using ```rostopic hz```
+### (9). Using rostopic hz
 ```rostopic hz``` reports the rate at which data is published. 
 
 Usage: 
@@ -257,7 +257,7 @@ Let's see how fast the ```turtlesim_node``` is publishing ```/turtle1/pose```:
 ```
 $ rostopic hz /turtle1/pose
 ```
-### (10). Using ```rqt_plot```
+### (10). Using rqt_plot
 ```rqt_plot``` displays a scrolling time plot of the data published on topics. Here we'll use ```rqt_plot to plot``` the data being published on the ```/turtle1/pose``` topic. First, start ```rqt_plot``` by typing 
 ```
 $ rosrun rqt_plot rqt_plot
