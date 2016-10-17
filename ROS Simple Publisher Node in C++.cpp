@@ -23,7 +23,9 @@
 
 
 /**
+ * --------------------------------------------------------------------------
  * This tutorial demonstrates simple sending of messages over the ROS system.
+ * --------------------------------------------------------------------------
  */
  
  
@@ -180,6 +182,14 @@ int main(int argc, char **argv)
   }
   
 
+/**
+ * ---------------------------------------------------------------------------------------------------------
+ * Here's the condensed version of what's going on:
+ *     Initialize the ROS system
+ *     Advertise that we are going to be publishing std_msgs/String messages on the chatter topic to the master
+ *     Loop while publishing messages to chatter 10 times a second 
+ * ---------------------------------------------------------------------------------------------------------
+ */
   return 0;
 }
 // %EndTag(FULLTEXT)%
